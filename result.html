@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+<style>
+    table, th, td {
+        border:3px solid black;
+        border-collapse: collapse;
+        padding:5px;
+    }
+    table.center{
+        margin-left:auto;
+        margin-right:auto;
+    }
+</style>
+</head>
+    <h1 style='text-align:center'>ABC Private Ltd.</h1>
+    <h2 style='text-align:center'>INVOICE</h2>
+<body>
+<table style='width:60%'>
+    <tr style='text-align:Left'>
+    <th colspan="4">Invoice Number: {{seller_name}}</th>
+    </tr>
+    <tr style='text-align:Left'>
+    <th colspan="4">Invoice Date: </th>
+
+    </tr>
+    <tr>
+        <td colspan="2">Seller</td>
+        <td colspan="2">Buyer</td>
+    </tr>
+    
+    <tr>
+        <td>{{seller_name}}<br>
+            {{seller_phone}}<br>
+            {{seller_address}}<br>
+        </td>
+        <td>
+            {{buyer_name}}<br>
+            {{buyer_phone}}<br>
+            {{buyer_address}}<br>
+        </td>
+    </tr>
+    <tr> 
+    <td width='10%'>S no.</td>
+    <td width='35%'>Product</td>
+    <td width='25%'>Quantity</td>
+    <td width='25%'>Amount</td>
+    </tr>
+    {% for s_no in invoice_items %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{product.name}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.amount}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+Total Cost : {{result}}
+
+{% endblock %}

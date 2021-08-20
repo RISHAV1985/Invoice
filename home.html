@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>INVOICE !!!</h1>
+
+<form action="add" method="post">
+    {% csrf_token %}
+    Seller's Name :<input type="text" name="seller_name"><br>
+    Seller's Phone :<input type="digit" name="seller_phone"><br>
+    Seller's Address :<input type="text" name="seller_address"><br>
+    Buyer's Name :<input type="text" name="buyer_name"><br>
+    Buyer's Phone :<input type="digit" name="buyer_phone"><br>
+    Buyer's Address :<input type="text" name="buyer_address"><br>
+    Product:<input type="digit" name="prod"><br>
+    Amount:<input type="digit" name="amount"><br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <input type="submit">
+
+</form>
+{% endblock %}
